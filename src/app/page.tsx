@@ -27,6 +27,15 @@ export default function Home() {
               </Link>
             </div>
           ))}
+          <div className="card">
+            <h3>Peças de Ar Condicionado</h3>
+            <p style={{ marginBottom: '20px' }}>
+              Encontre peças e acessórios para ar condicionado com qualidade e procedência. Trabalhamos com componentes compatíveis para manutenção e reposição em diversos modelos.
+            </p>
+            <Link href="/produtos" style={{ color: 'var(--secondary)', fontWeight: 'bold' }}>
+              Saiba Mais &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
