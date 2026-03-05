@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import { BRAND } from "@/lib/seoData";
 import { getWhatsappLink } from "@/lib/whatsapp";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: `Ar Condicionado em Curitiba | ${BRAND} Climatização`,
@@ -18,25 +19,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <header>
-          <div className="container">
-            <nav>
-              <Link href="/" className="logo">{BRAND}</Link>
-              <div className="nav-links">
-                <Link href="/">Início</Link>
-                <Link href="/curitiba/">Curitiba</Link>
-                <Link href="/curitiba/manutencao-de-ar-condicionado/">Manutenção</Link>
-                <Link href="/curitiba/tecnico-de-ar-condicionado/">Técnico</Link>
-                <Link href="/curitiba/empresa-de-ar-condicionado/">Empresa</Link>
-                <a href="https://loja.mfar.com.br" target="_blank" rel="noopener noreferrer">Loja</a>
-              </div>
-              <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                <a href={wpLink} target="_blank" rel="noopener noreferrer" className="cta-button" style={{ backgroundColor: "#25D366", borderColor: "#25D366" }}>WhatsApp</a>
-                <a href="https://mfar.com.br" target="_blank" rel="noopener noreferrer" className="cta-button">Orçamento</a>
-              </div>
-            </nav>
-          </div>
-        </header>
+        <Header />
 
         <main>{children}</main>
 

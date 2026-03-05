@@ -44,10 +44,11 @@ ul {
   padding: 0 20px;
 }
 
-header {
+/* Header Redesign */
+.site-header {
   height: var(--header-height);
   background: var(--white);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   width: 100%;
@@ -56,25 +57,92 @@ header {
   align-items: center;
 }
 
-nav {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary);
+.logo-link {
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 
-.nav-links {
+.header-logo {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.desktop-nav {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
-.nav-links a:hover {
+.desktop-nav a {
+  font-weight: 500;
+}
+
+.desktop-nav a:hover {
+  color: var(--secondary);
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe57;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  padding: 5px;
+}
+
+.mobile-menu-dropdown {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav a {
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 500;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav a:hover {
+  background: var(--light);
   color: var(--secondary);
 }
 
@@ -174,8 +242,27 @@ footer {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
+@media (max-width: 900px) {
+  .desktop-nav {
     display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .logo-link {
+    height: 40px;
   }
 }
