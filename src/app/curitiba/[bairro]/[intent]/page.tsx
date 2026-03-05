@@ -1,4 +1,5 @@
-import { BAIRROS, INTENTS, generatePageContent } from "@/lib/seoData";
+import { INTENTS, generatePageContent } from "@/lib/seoData";
+import { BAIRROS } from "@/lib/bairrosCuritiba";
 import SeoPageContent from "@/components/SeoPageContent";
 import { Metadata } from "next";
 
@@ -12,7 +13,7 @@ export async function generateStaticParams() {
     BAIRROS.forEach((bairro) => {
         INTENTS.forEach((intent) => {
             params.push({
-                bairro,
+                bairro: bairro.slug,
                 intent: intent.slug,
             });
         });

@@ -18,6 +18,7 @@ const INTENTS = [
 const urls = [
     "",
     "/curitiba/",
+    "/produtos/",
 ];
 
 // Add pillar pages
@@ -31,6 +32,19 @@ BAIRROS.forEach(bairro => {
         urls.push(`/curitiba/${bairro}/${intent}/`);
     });
 });
+
+// Add products
+try {
+    const productsPath = path.resolve(process.cwd(), 'src', 'lib', 'products.generated.json');
+    if (fs.existsSync(productsPath)) {
+        const productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+        productsData.forEach(product => {
+            urls.push(`/produtos/${product.slug}/`);
+        });
+    }
+} catch (error) {
+    console.error("Error reading products for sitemap:", error);
+}
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
