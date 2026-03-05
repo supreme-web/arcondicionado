@@ -15,7 +15,7 @@ export default function Header() {
 
                 {/* Esquerda: Logo */}
                 <Link href="/" className="logo-link">
-                    <img src="/mfar-logo.jpg" alt={`${BRAND} Climatização`} className="header-logo" />
+                    <img src="/mfar-logo.jpg" alt="MFAR Refrigeração" className="header-logo" />
                 </Link>
 
                 {/* Centro: Menu Desktop */}
@@ -28,13 +28,15 @@ export default function Header() {
                     <a href="https://loja.mfar.com.br" target="_blank" rel="noopener noreferrer">Loja</a>
                 </nav>
 
-                {/* Direita: Botões e Hamburger */}
+                {/* Direita: WhatsApp e Hamburger */}
                 <div className="header-actions">
-                    <a href={wpLink} target="_blank" rel="noopener noreferrer" className="cta-button btn-whatsapp">
+                    <a
+                        href={wpLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-whatsapp bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold px-4 py-2 rounded-lg transition"
+                    >
                         WhatsApp
-                    </a>
-                    <a href="https://mfar.com.br" target="_blank" rel="noopener noreferrer" className="cta-button btn-orcamento">
-                        Orçamento
                     </a>
 
                     <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
