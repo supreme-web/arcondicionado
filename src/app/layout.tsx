@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import Script from "next/script";
 import { BRAND } from "@/lib/seoData";
-import { getWhatsappLink } from "@/lib/whatsapp";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
@@ -15,7 +15,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const wpLink = getWhatsappLink();
   return (
     <html lang="pt-BR">
       <body>
@@ -35,34 +34,19 @@ export default function RootLayout({
           </div>
         </footer>
 
-        {/* WhatsApp Floating Button */}
-        <a
-          href={wpLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#25D366",
-            color: "#fff",
-            borderRadius: "50%",
-            width: "60px",
-            height: "60px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-            zIndex: 9999,
-            fontSize: "24px",
-            textDecoration: "none"
-          }}
-          aria-label="Falar conosco no WhatsApp"
-        >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-          </svg>
-        </a>
+        {/* Supremeweb CRM Widget — botão flutuante próprio + captura de lead
+            antes de qualquer link de WhatsApp (data-auto-whatsapp-links). */}
+        <Script
+          src="https://crm.supremeweb.com.br/crm-widget/v1.js?v=1.3.2-sites"
+          strategy="afterInteractive"
+          data-client-slug="mfar"
+          data-client-token="5zQRrJbIjOZK_H1QOAhf4QhGmhTcCQnM"
+          data-whatsapp="5541998623691"
+          data-default-service="Ar Condicionado"
+          data-floating-button="true"
+          data-button-position="right"
+          data-auto-whatsapp-links="true"
+        />
       </body>
     </html>
   );
